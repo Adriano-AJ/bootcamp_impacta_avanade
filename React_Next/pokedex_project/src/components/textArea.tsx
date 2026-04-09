@@ -1,7 +1,8 @@
-export function TextArea({ value }: { value: number }) {
+export function TextArea(key: number, text: any) {
   return (
     <div>
-        <span>{value}</span>
+        <p>{text}</p>
+        <p>{key}</p>
     </div>
   )
 }
