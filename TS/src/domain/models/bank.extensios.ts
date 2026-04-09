@@ -1,4 +1,4 @@
-import { Banking } from "./bank";
+import { Banking, SavingBanking } from "./bank";
 import { Logging, LogEntry } from "../../shared/logging";
 
 type BankAccountConstructor<T> = new (...args: any[]) => T;
@@ -31,3 +31,6 @@ function withLogging<C extends BankAccountConstructor<Banking>>(Class: C) {
         }
     };
 }
+
+const CheckingBankAccount = withLogging(withOverdraft(Banking));
+const SavingsBankAccountWithLogging = withLogging(SavingBanking)
