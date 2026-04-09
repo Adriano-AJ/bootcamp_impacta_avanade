@@ -1,11 +1,9 @@
-export function cardPokemon() {
+export function cardPokemon(name: string, img: string) {
   return (
-    <div>
+    <div className="card_pokemon">
         <h1>CARD</h1>
-        <span>Name:</span>
-        <span>Type:</span>
-        <span>Order:</span>
-        <span>Img:</span>
+        <span>Name: {name}</span>
+        <span>Img: {img}</span>
     </div>
   )
 }
