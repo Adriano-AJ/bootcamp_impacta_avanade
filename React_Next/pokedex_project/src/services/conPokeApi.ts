@@ -11,3 +11,19 @@ export async function getPokemonData() {
         return [];
     }
 }
+
+export function getPokemonDataByUrl(url: string) {
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Error fetching Pokémon data by URL:', error);
+            return {};
+        });
+}
+
+

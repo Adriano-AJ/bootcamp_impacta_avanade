@@ -1,0 +1,37 @@
+header{
+    color: black;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #f7f7f7;
+    padding: 10px;
+    height: 60px;
+    position: relative;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+#pokedex-title{
+    font-size: 28px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+
+#logoSec{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+   
+}
+
+img{
+    width: 40px;
+    height: 40px;
+}
+nav ul{
+    display: flex;
+    list-style: none;;
+    gap: 20px;
+    margin-left: auto;
+}

@@ -1,26 +1,41 @@
 import { useState } from 'react'
-import { TextArea } from './components/textArea'
-import { getPokemonData } from './services/conPokeApi'
-import { cardPokemon } from './components/CardPokemon/cardPokemon'
-import type { Pokemon } from './types/pokemon'
+import { getPokemonData, getPokemonDataByUrl } from './services/conPokeApi'
+import { CardPokemon } from './components/CardPokemon/CardPokemon'
+import type { Pokemon, PokemonType } from './types/pokemon'
 import './App.css'
+import { SearchBar } from './components/SearchBar/SearchBar'
+import { Header } from './components/Header/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [pokemonList, setPokemonList] = useState([]);
+
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
 
   const fetchPokemonData = async () => {
     const data = await getPokemonData();
     setPokemonList(data);
+
+    const updatedPokemonList = await Promise.all(data.map(async (pokemon: Pokemon) => {
+      const pokemonDetails = await getPokemonDataByUrl(pokemon.url);
+      console.log(pokemonDetails);
+      return {
+        ...pokemon,
+        img: pokemonDetails.sprites.other["official-artwork"].front_default,
+        type: pokemonDetails.types[0].type.name as PokemonType
+      };
+    }));
+    setPokemonList(updatedPokemonList);
+
   }
 
   return (
     <>
-      <h1>Pokedex</h1>
-      <button onClick={() => fetchPokemonData()}>Buscar Pokémons</button>
+      <Header/>
+      <SearchBar/>
+      <button className='button_search' onClick={() => fetchPokemonData()}>Buscar</button>
       {pokemonList.map((pokemon: Pokemon) => (
-        cardPokemon(pokemon.name, pokemon.img)
+        CardPokemon(pokemon, pokemonList.indexOf(pokemon))
       ))}
+      <button id='load_btn'>Load More</button>
     </>
   )
 }
