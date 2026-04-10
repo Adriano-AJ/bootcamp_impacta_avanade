@@ -9,6 +9,7 @@ import { Header } from './components/Header/Header'
 function App() {
 
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
+  const [offset, setOffset] = useState(10);
 
   const fetchPokemonData = async () => {
     const data = await getPokemonData();
@@ -35,7 +36,10 @@ function App() {
       {pokemonList.map((pokemon: Pokemon) => (
         CardPokemon(pokemon, pokemonList.indexOf(pokemon))
       ))}
-      <button id='load_btn'>Load More</button>
+      <button id='load_btn' onClick={() => {
+        setOffset(offset + 10);
+        console.log(offset);
+      }}>Load More</button>
     </>
   )
 }
