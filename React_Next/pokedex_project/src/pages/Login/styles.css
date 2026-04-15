@@ -1,0 +1,141 @@
+/* ==========================================================
+   Estilos Globais e Reset (Para garantir consistência)
+   ========================================================== */
+:root {
+  /* Paleta de Cores Pokedéx */
+  --pokedex-red: #dc0a2d;      /* O vermelho principal da Pokedéx */
+  --pokedex-dark-red: #a10821;
+  --pokedex-blue: #28aafd;      /* O azul da tela/luz principal */
+  --pokedex-yellow: #ffcb05;    /* Amarelo do logo Pokémon */
+  --bg-dark: #121212;          /* Fundo escuro para destacar */
+  --text-white: #ffffff;
+  --text-gray: #b0b0b0;
+  --input-bg: #2a2a2a;         /* Fundo dos campos de input */
+}
+
+/* Reset básico para garantir que o layout ocupe a tela toda */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* ==========================================================
+   Container Principal (.login-container)
+   A "Caixa" da Pokedéx
+   ========================================================== */
+.login-container {
+  background-color: var(--pokedex-red);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 400px;
+  display: flex;
+  align-self: center;
+  /* Adiciona a "dobra" icônica da Pokedéx no topo */
+  border-top: 15px solid var(--pokedex-dark-red);
+}
+
+/* Adiciona o "Círculo de Luz" azul no topo esquerdo (Detalhe Icônico) */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--pokedex-blue);
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  box-shadow: 0 0 15px var(--pokedex-blue);
+  z-index: 10;
+}
+
+/* ==========================================================
+   O Formulário (.login-form)
+   A "Tela" da Pokedéx onde digitamos
+   ========================================================== */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e; /* Fundo escuro imitando uma tela desligada */
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  border: 4px solid #333; /* Borda da tela */
+}
+
+/* Título (h2) - Estilo do logo Pokémon */
+.login-form h2 {
+  text-align: center;
+  color: var(--pokedex-yellow);
+  margin-bottom: 25px;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+  /* Efeito de contorno (Text Stroke) */
+  text-shadow: 
+    -1px -1px 0 #3b4cca,
+     1px -1px 0 #3b4cca,
+    -1px  1px 0 #3b4cca,
+     1px  1px 0 #3b4cca;
+}
+
+/* Campos de Entrada (Input) */
+.login-form input {
+  background-color: var(--input-bg);
+  color: var(--text-white);
+  border: 2px solid #444;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito de foco imitando a seleção da Pokedéx */
+.login-form input:focus {
+  outline: none;
+  border-color: var(--pokedex-yellow);
+  box-shadow: 0 0 8px rgba(255, 203, 5, 0.5);
+}
+
+/* Botão de Login */
+.login-form button {
+  background-color: var(--pokedex-blue);
+  color: #ffffff;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  margin-bottom: 20px;
+  
+  /* Borda inferior para dar efeito de botão físico */
+  border-bottom: 4px solid #1a7fbd;
+}
+
+.login-form button:hover {
+  background-color: #51b5fc;
+}
+
+.login-form button:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+}
+
+/* ==========================================================
+   Link de Registro (.register-link)
+   A área de ajuda no rodapé da "tela"
+   ========================================================== */
+.register-link {
+  text-align: center;
+  font-size: 14px;
+}

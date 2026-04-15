@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { getPokemonData, getPokemonDataByUrl } from './services/conPokeApi'
-import { CardPokemon } from './components/CardPokemon/CardPokemon'
+import { CardPokemon } from './components/CardPokemon/cardPokemon'
 import type { Pokemon, PokemonType } from './types/pokemon'
 import './App.css'
 import { SearchBar } from './components/SearchBar/SearchBar'
