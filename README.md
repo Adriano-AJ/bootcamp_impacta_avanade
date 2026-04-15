@@ -2,15 +2,6 @@
 
 Projetos realizados durante o bootcamp da Avanade em parceria com a plataforma Impacta.
 
-> **⚠️ Projetos de estudo**
-
-## 🛠 Tech Stack
-
-- TypeScript
-- CSS
-- JavaScript
-- HTML
-
 ## 📁 Projetos
 
 - **Consumo de API em JavaScript** - Aprendizado e entendimento de integração com APIs
